@@ -1,4 +1,4 @@
-package com.ekkon.ftlweaponmaker.com.ekkon.ftlweaponmaker.gui;
+package com.ekkon.ftlweaponmaker.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,17 +13,15 @@ import java.io.*;
  * File Description
  * WARNING!!! THIS CLASS IS NOT OPTIMIZED!!!
  */
-public class GUIPanel extends JPanel {
+public class AnimationPanel extends JPanel {
 
     private InputStream input;
     private BufferedImage background;
 
-    public GUIPanel(int w, int h) {
-        this.setPreferredSize(new Dimension(w, h));
-
+    AnimationPanel() {
         try {
-           input = new BufferedInputStream(new FileInputStream("res/background.png"));
-           background = ImageIO.read(input);
+            input = new BufferedInputStream(new FileInputStream("res/background.png"));
+            background = ImageIO.read(input);
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
             e.printStackTrace();
@@ -34,7 +32,7 @@ public class GUIPanel extends JPanel {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         g.drawImage(background, 0,  0, null);

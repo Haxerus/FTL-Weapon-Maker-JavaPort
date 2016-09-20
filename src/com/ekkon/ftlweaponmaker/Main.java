@@ -1,6 +1,6 @@
 package com.ekkon.ftlweaponmaker;
 
-import com.ekkon.ftlweaponmaker.com.ekkon.ftlweaponmaker.gui.GUIPanel;
+import com.ekkon.ftlweaponmaker.gui.MainPanel;
 
 import javax.swing.*;
 
@@ -19,8 +19,9 @@ public class Main {
     public static void main(String[] args) {
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.add(new GUIPanel(800, 600));
+        frame.add(new MainPanel(800, 628));
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
