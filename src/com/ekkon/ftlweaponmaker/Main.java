@@ -1,6 +1,7 @@
 package com.ekkon.ftlweaponmaker;
 
 import com.ekkon.ftlweaponmaker.gui.MainPanel;
+import com.ekkon.ftlweaponmaker.xml.Weapon;
 
 import javax.swing.*;
 
@@ -23,6 +24,7 @@ public class Main {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Weapon wep = new Weapon();
     }
 
 }

@@ -3,6 +3,7 @@ package com.ekkon.ftlweaponmaker.xml;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.io.IOException;
  */
 public class Weapon {
 
-    Weapon() {
+    public Weapon() {
 
         Element weaponBluprint = new Element("weaponBlueprint");
         Document doc = new Document(weaponBluprint);
@@ -26,8 +27,15 @@ public class Weapon {
 
         doc.getRootElement().addContent(meme);
 
-        XMLOutputter
+        XMLOutputter output = new XMLOutputter();
 
+        output.setFormat(Format.getPrettyFormat());
+
+        try {
+            output.output(doc, System.out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
