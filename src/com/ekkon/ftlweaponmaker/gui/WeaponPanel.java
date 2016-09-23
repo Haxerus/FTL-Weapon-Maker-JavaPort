@@ -2,7 +2,15 @@ package com.ekkon.ftlweaponmaker.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
@@ -15,26 +23,59 @@ import java.io.*;
  */
 public class WeaponPanel extends JPanel {
 
-    private InputStream input;
-    private BufferedImage background;
+    private final JButton button;
+    private final JTextField textField;
 
-    WeaponPanel() {
-        try {
-            input = new BufferedInputStream(new FileInputStream("res/background.png"));
-            background = ImageIO.read(input);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Something went wrong while importing files.");
-            e.printStackTrace();
-        }
+    public WeaponPanel() {
+        button = new JButton("New Weapon...");
+        button.setEnabled(false);
+
+        textField = new JTextField(10);
+        textField.setText("Weapon Name...");
+
+        this.add(button);
+        this.add(textField);
+
+        textField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateButton();
+            }
+
+            private void updateButton() {
+                if (textField.getText().isEmpty()) {
+                    button.setEnabled(false);
+                } else {
+                    button.setEnabled(true);
+                }
+            }
+        });
+
+        textField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                textField.
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+
+            }
+        });
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.drawImage(background, 0,  0, null);
     }
 }

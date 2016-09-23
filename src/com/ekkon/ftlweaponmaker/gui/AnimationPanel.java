@@ -15,26 +15,11 @@ import java.io.*;
  */
 public class AnimationPanel extends JPanel {
 
-    private InputStream input;
-    private BufferedImage background;
-
     AnimationPanel() {
-        try {
-            input = new BufferedInputStream(new FileInputStream("res/background.png"));
-            background = ImageIO.read(input);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Something went wrong while importing files.");
-            e.printStackTrace();
-        }
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.drawImage(background, 0,  0, null);
     }
 }
