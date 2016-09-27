@@ -1,10 +1,7 @@
 package com.ekkon.ftlweaponmaker.gui;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
 
 /**
  * FTL-Weapon-Maker-Java

@@ -10,9 +10,12 @@ import java.awt.*;
  * File Description
  * WARNING!!! THIS CLASS IS NOT OPTIMIZED!!!
  */
-public class MainPanel extends JTabbedPane {
+public class MainPanel extends JTabbedPane{
+
+    public boolean running;
 
     public MainPanel(int w, int h) {
+        running = true;
         this.setPreferredSize(new Dimension(w, h));
         this.addTab("Weapon Properties", new WeaponPanel());
         this.addTab("Animation Properties", new WeaponPanel());
