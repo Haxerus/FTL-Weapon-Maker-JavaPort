@@ -19,11 +19,11 @@ public class Main {
 
     public static void main(String[] args) {
         frame.setResizable(false);
-        frame.setVisible(true);
         frame.add(new MainPanel(800, 628));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 
 }
