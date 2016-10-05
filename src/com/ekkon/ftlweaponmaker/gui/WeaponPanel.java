@@ -15,11 +15,17 @@ public class WeaponPanel extends JPanel {
 
     BufferedImage bg, logo;
 
+    String[] types = {"LASER", "MISSILES", "BEAM", "BOMB", "BURST"};
+
     JButton createWeapon;
+    JComboBox<String> type;
+    JTextField weaponName;
 
     public WeaponPanel(BufferedImage bg, BufferedImage logo) {
         this.bg = bg;
         this.logo = logo;
+
+        initGUI();
     }
 
     @Override
@@ -30,6 +36,12 @@ public class WeaponPanel extends JPanel {
     }
 
     private void initGUI() {
-        createWeapon = new JButton("New ");
+        createWeapon = new JButton("New Weapon...");
+        type = new JComboBox<>(types);
+        weaponName = new JTextField(10);
+
+        this.add(createWeapon);
+        this.add(type);
+        this.add(weaponName);
     }
 }
