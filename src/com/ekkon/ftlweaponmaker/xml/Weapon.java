@@ -6,6 +6,7 @@ import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -17,16 +18,18 @@ import java.io.IOException;
  */
 public class Weapon {
 
-    public Weapon() {
+    public Document doc;
+    public Element weaponBlueprint;
 
-        Element weaponBluprint = new Element("weaponBlueprint");
-        Document doc = new Document(weaponBluprint);
+    public Weapon(String name, String type) {
+        weaponBlueprint = new Element("weaponBlueprint");
+        weaponBlueprint.setAttribute(new Attribute("name", name));
+        doc = new Document(weaponBlueprint);
 
-        Element meme = new Element("meme");
-        meme.setAttribute(new Attribute("type", "the nutshack"));
+        setType(type);
+    }
 
-        doc.getRootElement().addContent(meme);
-
+    public void output() {
         XMLOutputter output = new XMLOutputter();
 
         output.setFormat(Format.getPrettyFormat());
@@ -37,5 +40,12 @@ public class Weapon {
             e.printStackTrace();
         }
     }
+
+    private void setType(String s) {
+        Element type = new Element("type");
+        type.setText(s);
+        doc.getRootElement().addContent(type);
+    }
+
 
 }

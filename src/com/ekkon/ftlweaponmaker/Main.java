@@ -18,12 +18,18 @@ public class Main {
     public static JFrame frame = new JFrame("FTL Weapon Maker 2.0");
 
     public static void main(String[] args) {
-        frame.setResizable(false);
+//        try {
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        } catch (Exception e) {
+//            System.out.println("Something went wrong while setting L&F");
+//        }
+
         frame.add(new MainPanel(800, 628));
         frame.pack();
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 }
